@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Disfruta mi amor🥰</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        .boton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+            position: relative;
+            z-index: 10;
+        }
+        #love {
+            width: 30ch;
+            text-wrap: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(30) infinite alternate-reverse;
+        }
+        @keyframes typing {
+            from { width: 0ch; }
+        }
+        .corazon {
+            position: absolute;
+            top: -20px;
+            font-size: 24px;
+            color: #ff6b6b;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: caida linear forwards;
+        }
+        @keyframes caida {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <button class="boton" onclick="window.location.href='loveme.html'" id="love">🥰 TE AMO❤️</button>
+    <audio autoplay>
+        <source src="te_amo1.mp3" type="audio/mp3">
+    </audio>
+    <script>
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.className = 'corazon';
+            corazon.textContent = '♥';
+            corazon.style.left = Math.random() * 100 + 'vw';
+            const duracion = Math.random() * 3 + 3;
+            corazon.style.animationDuration = duracion + 's';
+            const tamaño = Math.random() * 20 + 20;
+            corazon.style.fontSize = tamaño + 'px';
+            document.body.appendChild(corazon);
+            setTimeout(() => {
+                corazon.remove();
+            }, duracion * 3000);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(crearCorazon, 100);
+        });
+    </script>
+</body>
+</html>

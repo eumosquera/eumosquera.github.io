@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>❤️Feliz Aniversario Amor 😍❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        /* Estilos del carrusel */
+        .carousel-container {
+            width: 50%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            margin: 50px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Estilos del texto central */
+        .texto-central {
+            text-align: center;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .texto-central h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .texto-central p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.2em;
+        }
+
+        /* Estilos de los corazones */
+        .corazon {
+            position: fixed;
+            top: -20px;
+            /* Empiezan fuera de la pantalla */
+            font-size: 24px;
+            /* Tamaño más grande */
+            color: #ff6b6b;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+            animation: caida linear forwards;
+        }
+
+        @keyframes caida {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="texto-central">
+        <h1>Nuestros lindos momentos juntos!</h1>
+    </div>
+    <!-- Carrusel -->
+    <div class="carousel-container">
+        <button class="carousel-btn prev-btn">←</button>
+        <button class="carousel-btn next-btn">→</button>
+        <div class="carousel-slide active">
+            <img src="una.jpg" alt="Amor">
+        </div>
+        <div class="carousel-slide">
+            <img src="dos.jpg" alt="Imagen 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="tres.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="cuatro.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="cinco.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="siete.jpg" alt="Imagen 3">
+        </div>
+    </div>
+
+    <!-- Texto Central -->
+    <div class="texto-central">
+        <h1>24/03/2025</h1>
+
+        <p>Hoy celebramos un año de estar juntos compartiendo momentos inolvidables</p>
+    </div>
+    <div class="texto-central">
+        <h1>Feliz Aniversario Amor</h1>
+        <h1>Te Amoooo!</h1>
+        <p>Las palabras que transmiten tús ojos son mas dulces que las canciones de amor que existen,
+            Solo con algunas palabras, un saludo, una mirada tuya me convierto en alguien más,
+            Cuando te mueves mi corazón ❤️ lo hace contigo.
+            Quiero que sepas que sacrificaría mis ojos y mi vida entera por ti, y todo lo que tengo por tu amor.
+            Tú amor hace la noche más larga, más intensa, Esto es un amor de años el que tenemos tú y yo 🥰👨‍👩‍👧‍👦
+            Solo un paso más, corazón mío, mi alma te acompaña y se pierde en tú belleza, es como la magia de la vida,
+            su hechizo extraordinario, ojos que la propia luna envidia,
+            uan sonrisa brillante como el sol, mi alma te acompaña y se pierde en tú belleza</p>
+    </div>
+
+
+    <script>
+        // Funcionalidad del carrusel
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // Cambio automático de slides
+        setInterval(() => showSlide(currentSlide + 1), 5000);
+
+        // Animación de corazones cayendo
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.className = 'corazon';
+            corazon.textContent = '♥'; // Corazón en texto en lugar de emoji
+
+            // Posición horizontal aleatoria
+            corazon.style.left = Math.random() * 100 + 'vw';
+
+            // Velocidad aleatoria entre 3 y 6 segundos
+            const duracion = Math.random() * 3 + 3;
+            corazon.style.animationDuration = duracion + 's';
+
+            // Tamaño aleatorio
+            const tamaño = Math.random() * 20 + 20;
+            corazon.style.fontSize = tamaño + 'px';
+
+            document.body.appendChild(corazon);
+
+            // Eliminar el corazón después de la animación
+            setTimeout(() => {
+                corazon.remove();
+            }, duracion * 1000);
+        }
+
+        // Iniciar la creación de corazones cuando la página esté cargada
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crear corazones cada 200ms
+            setInterval(crearCorazon, 200);
+        });
+    </script>
+</body>
+
+</html>

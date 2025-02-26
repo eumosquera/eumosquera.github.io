@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz aniversario Amor ❤️😍</title>
+    <style>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        /* Estilos del carrusel */
+        .carousel-container {
+            width: 80%;
+            margin: 50px auto;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-slide {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Estilos del texto central */
+        .texto-central {
+            text-align: center;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .texto-central h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .texto-central p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.2em;
+        }
+
+        /* Estilos de los corazones */
+        .corazon {
+            position: fixed;
+            top: -20px;
+            /* Empiezan fuera de la pantalla */
+            font-size: 24px;
+            /* Tamaño más grande */
+            color: #ff6b6b;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+            animation: caida linear forwards;
+        }
+
+        @keyframes caida {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Carrusel -->
+    <div class="carousel-container">
+        <button class="carousel-btn prev-btn">←</button>
+        <button class="carousel-btn next-btn">→</button>
+        <div class="carousel-slide active">
+            <img src="/api/placeholder/800/300" alt="Imagen 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="/api/placeholder/800/300" alt="Imagen 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="/api/placeholder/800/300" alt="Imagen 3">
+        </div>
+    </div>
+
+    <!-- Texto Central -->
+    <div class="texto-central">
+        <h1>Bienvenidos a mi página</h1>
+        <p>Este es un texto de ejemplo con un hermoso diseño. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <script>
+        // Funcionalidad del carrusel
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // Cambio automático de slides
+        setInterval(() => showSlide(currentSlide + 1), 5000);
+
+        // Animación de corazones cayendo
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.className = 'corazon';
+            corazon.textContent = '♥'; // Corazón en texto en lugar de emoji
+            
+            // Posición horizontal aleatoria
+            corazon.style.left = Math.random() * 100 + 'vw';
+            
+            // Velocidad aleatoria entre 3 y 6 segundos
+            const duracion = Math.random() * 3 + 3;
+            corazon.style.animationDuration = duracion + 's';
+            
+            // Tamaño aleatorio
+            const tamaño = Math.random() * 20 + 20;
+            corazon.style.fontSize = tamaño + 'px';
+            
+            document.body.appendChild(corazon);
+
+            // Eliminar el corazón después de la animación
+            setTimeout(() => {
+                corazon.remove();
+            }, duracion * 1000);
+        }
+
+        // Iniciar la creación de corazones cuando la página esté cargada
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crear corazones cada 200ms
+            setInterval(crearCorazon, 200);
+        });
+    </script>
+</body>
+</html>

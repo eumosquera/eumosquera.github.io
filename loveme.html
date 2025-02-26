@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>❤️Feliz Aniversario Amor 😍❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        /* Estilos del carrusel */
+        .carousel-container {
+            width: 50%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            margin: 50px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+
+
+        /* Estilos del texto central */
+        .texto-central {
+            text-align: center;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            margin: 50px auto;
+        }
+
+        .texto-central h1 {
+            color: #333;
+            font-size: 2.3em;
+            margin-bottom: 18px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .texto-central p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.2em;
+            text-align: justify;
+        }
+
+        /* Estilos de los corazones */
+        .corazon {
+            position: fixed;
+            top: -20px;
+            /* Empiezan fuera de la pantalla */
+            font-size: 24px;
+            /* Tamaño más grande */
+            color: #ff6b6b;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+            animation: caida linear forwards;
+        }
+        .boton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: white;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            
+            transition: background 0.3s;
+        }
+        #love {
+            width: 30ch;
+            text-wrap: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(30) infinite alternate-reverse;
+            
+        }
+
+        @keyframes caida {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        @keyframes typing {
+            from{width: 0ch;}
+        }
+    </style>
+</head>
+
+<body>
+    <div class="texto-central">
+        <h1>Día 24 de Marzo 2025</h1>
+        <p>😍Hoy celebramos un año. 12 meses. 48 semanas. 365 días. 8.760 horas. 525.600 minutos. 31.536.000
+            segundos💘💞De estar juntos compartiendo momentos inolvidables💌💖🧑‍🤝‍🧑 parece mucho tiempo y poco a la
+            vez🥹🥺 pero lo hemos vivido y eso me alegra. Hemos pasado momentos felices💓🤩 y otros no tanto😔pero lo más
+            importante es que cada uno de ellos nos han llevado hasta hoy💌... Recuerdo el día que te pedí ser mi
+            novía🥰 pensé que no iba a pasar😥estaba nerviosos y ansioso😰de no saber que ibas a decir🥺ya tenía muchas ganas de estar contigo💘de
+            que fueramos más que amigos💞eres una maravillosa y gran mujer🌹🩷te amo y estoy convencido que eres el amor
+            de mi vida💑la persona que yo espere que llegará a mi vida🫶🥹con la que me quiero quedar para
+            siempre💘🥰Tener muchos hijos y formar una gran familia👨‍👩‍👧‍👦 Estoy seguro aún nos queda mucho tiempo y un largo camino para seguir creciendo juntos💑👪. Me siento tan feliz contigo, amado, cuidado, consentido y solo espero que tu tambien te sientas así🥰🥰
+
+        </p>
+        <h1>Feliz Aniversario Amor ❤️TE AMO❤️</h1>
+        <button class="boton" onclick="window.location.href='moments-fotos.html'" id="love">💌💌💌💌💌💌💌💌💌💌💌💌</button>
+        <audio autoplay>
+            <source src="Yo Te Amo.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <script>
+        // Animación de corazones cayendo
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.className = 'corazon';
+            corazon.textContent = '♥♥'; // Corazón en texto en lugar de emoji
+
+            // Posición horizontal aleatoria
+            corazon.style.left = Math.random() * 100 + 'vw';
+
+            // Velocidad aleatoria entre 3 y 6 segundos
+            const duracion = Math.random() * 3 + 3;
+            corazon.style.animationDuration = duracion + 's';
+
+            // Tamaño aleatorio
+            const tamaño = Math.random() * 20 + 20;
+            corazon.style.fontSize = tamaño + 'px';
+
+            document.body.appendChild(corazon);
+
+            // Eliminar el corazón después de la animación
+            setTimeout(() => {
+                corazon.remove();
+            }, duracion * 4000);
+        }
+
+        // Iniciar la creación de corazones cuando la página esté cargada
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crear corazones cada ms
+            setInterval(crearCorazon, 100);
+        });
+    </script>
+</body>
+
+</html>

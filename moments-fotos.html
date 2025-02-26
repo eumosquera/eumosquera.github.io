@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>❤️Todo por ti Amor 😍❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        /* Estilos del carrusel */
+        .carousel-container {
+            width: 25%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            cursor: pointer;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 50%;
+            padding: 3px 10px;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.2;
+            transition: opacity 0.3s;
+        }
+
+        .carousel-btn:hover {
+            opacity: 1;
+        }
+
+        .prev-btn {
+            left: -0px;
+        }
+
+        .next-btn {
+            right: -0px;
+        }
+
+        /* Estilos del texto central */
+        .texto-central {
+            text-align: center;
+            margin: 5px auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .texto-central h1 {
+            color: #333;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .texto-central p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* Estilos de los corazones */
+        .corazon {
+            position: fixed;
+            top: -20px;
+            /* Empiezan fuera de la pantalla */
+            font-size: 24px;
+            /* Tamaño más grande */
+            color: #ff6b6b;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+            animation: caida linear forwards;
+        }
+        .boton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: white;
+            color: white;
+            border: none;
+        
+            cursor: pointer;
+            
+            transition: background 0.3s;
+            
+        }
+
+        #love {
+            width: 30ch;
+            text-wrap: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(30) infinite alternate-reverse;
+
+        }
+
+        @keyframes caida {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        
+        @keyframes typing {
+            from{width: 0ch;}
+        }
+    </style>
+</head>
+
+<body>
+    <div class="texto-central">
+        <h1>Lindos momentos juntos!💑</h1>
+        <p>Hoy quiero que sepas que siempre voy a dar todo de mí para verte feliz🥰 Me encanta decir que te amo💓💓 y
+            tengo la mejor pareja del mundo😍😍 soy muy feliz a tú lado🥰 Solo quiero que cada noche descanses sabiendo que eres amada por mi y que cada mañana despiertes sabiendo que te amaré cada día un poco más🥹💞🌠 </p>
+    </div>
+    <!-- Carrusel -->
+    <div class="carousel-container">
+        <button class="carousel-btn prev-btn">←</button>
+        <button class="carousel-btn next-btn">→</button>
+        <div class="carousel-slide active">
+            <img src="una.jpg" alt="Amor">
+        </div>
+        <div class="carousel-slide">
+            <img src="doce.jpg" alt="Imagen 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="tres.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="cuatro.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="cinco.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="siete.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="dos.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="ocho.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="diez.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="nueve.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="once.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="trece.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="quince.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="catorce.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="diezy6.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="diezy7.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="diezy8.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="veintey1.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="diezy9.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="veinte.jpg" alt="Imagen 3">
+        </div>
+
+        <audio autoplay>
+            <source src="Burbujas De Amor.mp3" type="audio/mp3">
+        </audio>
+        
+    </div>
+    
+    <p class="texto-central">
+        Ender y Mara
+        <br>
+        :::::::::::::::
+        <br>
+        "Es mejor ser dos que uno, porque ambos pueden ayudarse mutuamente a lograr el éxito."
+        <br>
+        Eclesiastés 4,9
+        <br>
+        :::::::::::::::
+    </p>
+    <div class="texto-central">
+        <button class="boton" onclick="window.location.href='moments-videos.html'" id="love">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</button>
+    </div>
+    
+
+    <script>
+        // Funcionalidad del carrusel
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // Cambio automático de slides
+        setInterval(() => showSlide(currentSlide + 1), 9000);
+
+        // Animación de corazones cayendo
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.className = 'corazon';
+            corazon.textContent = '♥'; // Corazón en texto en lugar de emoji
+
+            // Posición horizontal aleatoria
+            corazon.style.left = Math.random() * 100 + 'vw';
+
+            // Velocidad aleatoria entre 3 y 6 segundos
+            const duracion = Math.random() * 3 + 3;
+            corazon.style.animationDuration = duracion + 's';
+
+            // Tamaño aleatorio
+            const tamaño = Math.random() * 20 + 20;
+            corazon.style.fontSize = tamaño + 'px';
+
+            document.body.appendChild(corazon);
+
+            // Eliminar el corazón después de la animación
+            setTimeout(() => {
+                corazon.remove();
+            }, duracion * 10000);
+        }
+
+        // Iniciar la creación de corazones cuando la página esté cargada
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crear corazones cada 100ms
+            setInterval(crearCorazon, 100);
+        });
+    </script>
+</body>
+
+</html>
