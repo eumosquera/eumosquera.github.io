@@ -122,49 +122,56 @@
 
 <body>
     <div class="texto-central">
-        <h1>Nuestros lindos momentos juntos!</h1>
+        <h1>💑Hoy celebramos un año de estar juntos compartiendo momentos inolvidables💞</h1>
     </div>
     <!-- Carrusel -->
     <div class="carousel-container">
         <button class="carousel-btn prev-btn">←</button>
         <button class="carousel-btn next-btn">→</button>
         <div class="carousel-slide active">
-            <img src="una.jpg" alt="Amor">
-        </div>
-        <div class="carousel-slide">
-            <img src="dos.jpg" alt="Imagen 2">
-        </div>
-        <div class="carousel-slide">
-            <img src="tres.jpg" alt="Imagen 3">
-        </div>
-        <div class="carousel-slide">
-            <img src="cuatro.jpg" alt="Imagen 3">
-        </div>
-        <div class="carousel-slide">
-            <img src="cinco.jpg" alt="Imagen 3">
-        </div>
-        <div class="carousel-slide">
-            <img src="siete.jpg" alt="Imagen 3">
+            <video id="video1" width="640" height="360" muted>
+                <source src="100.mp4" type="video/mp4">
+            </video>
+            <video id="video2" width="640" height="360" style="display: none;" muted>
+                <source src="120.mp4" type="video/mp4">
+            </video>
+            <video id="video3" width="640" height="360" style="display: none;" muted>
+                <source src="130.mp4" type="video/mp4">
+            </video>
+            <video id="video4" width="640" height="360" style="display: none;" muted>
+                <source src="140.mp4" type="video/mp4">
+            </video>
+            <video id="video5" width="640" height="360" style="display: none;" muted>
+                <source src="seis.mp4" type="video/mp4">
+            </video>
+            <video id="video6" width="640" height="360" style="display: none;" muted>
+                <source src="seislll.mp4" type="video/mp4">
+            </video>
+            <video id="video7" width="640" height="360" style="display: none;" muted>
+                <source src="seisvll.mp4" type="video/mp4">
+            </video>
+            <video id="video8" width="640" height="360" style="display: none;" muted>
+                <source src="seisvl.mp4" type="video/mp4">
+            </video>
+            <video id="video9" width="640" height="360" style="display: none;" muted>
+                <source src="seisll.mp4" type="video/mp4">
+            </video>
+            <video id="video10" width="640" height="360" style="display: none;" muted>
+                <source src="seisv.mp4" type="video/mp4">
+            </video>
+            <video id="video11" width="640" height="360" style="display: none;" muted>
+                <source src="seislv.mp4" type="video/mp4">
+            </video>
+
         </div>
     </div>
 
-    <!-- Texto Central -->
-    <div class="texto-central">
-        <h1>24/03/2025</h1>
-
-        <p>Hoy celebramos un año de estar juntos compartiendo momentos inolvidables</p>
-    </div>
     <div class="texto-central">
         <h1>Feliz Aniversario Amor</h1>
-        <h1>Te Amoooo!</h1>
-        <p>Las palabras que transmiten tús ojos son mas dulces que las canciones de amor que existen,
-            Solo con algunas palabras, un saludo, una mirada tuya me convierto en alguien más,
-            Cuando te mueves mi corazón ❤️ lo hace contigo.
-            Quiero que sepas que sacrificaría mis ojos y mi vida entera por ti, y todo lo que tengo por tu amor.
-            Tú amor hace la noche más larga, más intensa, Esto es un amor de años el que tenemos tú y yo 🥰👨‍👩‍👧‍👦
-            Solo un paso más, corazón mío, mi alma te acompaña y se pierde en tú belleza, es como la magia de la vida,
-            su hechizo extraordinario, ojos que la propia luna envidia,
-            uan sonrisa brillante como el sol, mi alma te acompaña y se pierde en tú belleza</p>
+        <h1>Te Amoooo! Te dedico esta canción!</h1>
+        <audio autoplay>
+            <source src="Sherine.mp3" type="audio/mp3">
+        </audio>
     </div>
 
 
@@ -174,8 +181,37 @@
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
         let currentSlide = 0;
+        const videos = [
+            document.getElementById("video1"),
+            document.getElementById("video2"),
+            document.getElementById("video3"),
+            document.getElementById("video4"),
+            document.getElementById("video5"),
+            document.getElementById("video6"),
+            document.getElementById("video7"),
+            document.getElementById("video8"),
+            document.getElementById("video9"),
+            document.getElementById("video10"),
+            document.getElementById("video11"),
+        ];
+        let currentVideo = 0;
+
+        function playNextVideo() {
+            if (currentVideo < videos.length - 1) {
+                videos[currentVideo].style.display = "none";
+                currentVideo++;
+                videos[currentVideo].style.display = "block";
+                videos[currentVideo].play();
+            }
+
+        }
+        videos.forEach(video => {
+            video.addEventListener("ended", playNextVideo);
+        });
+        videos[0].play();
 
         function showSlide(n) {
+
             slides.forEach(slide => slide.classList.remove('active'));
             currentSlide = (n + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
@@ -185,7 +221,7 @@
         nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
 
         // Cambio automático de slides
-        setInterval(() => showSlide(currentSlide + 1), 5000);
+        //setInterval(() => showSlide(currentSlide + 1), 5000);
 
         // Animación de corazones cayendo
         function crearCorazon() {
