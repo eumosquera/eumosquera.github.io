@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
             overflow-x: hidden;
             background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
             position: relative;
@@ -18,11 +18,11 @@
 
         /* Estilos del carrusel */
         .carousel-container {
-            width: 50%;
+            width: 25%;
             height: 300px;
             position: relative;
             overflow: hidden;
-            margin: 50px auto;
+            margin: 20px auto;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -40,10 +40,10 @@
             opacity: 1;
         }
 
-        .carousel-slide img {
+        .carousel-slide video {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: fill;
             cursor: pointer;
         }
 
@@ -98,15 +98,16 @@
         .corazon {
             position: fixed;
             top: -20px;
-            /* Empiezan fuera de la pantalla */
             font-size: 24px;
-            /* Tamaño más grande */
             color: #ff6b6b;
             pointer-events: none;
-            z-index: 0;
+            z-index: 100;
+            /* Asegurar que se vea sobre otros elementos */
             opacity: 0.8;
-            animation: caida linear forwards;
+            animation: caida 5s linear forwards;
+            /* Duración predeterminada */
         }
+
 
         @keyframes caida {
             from {
@@ -126,8 +127,6 @@
     </div>
     <!-- Carrusel -->
     <div class="carousel-container">
-        <button class="carousel-btn prev-btn">←</button>
-        <button class="carousel-btn next-btn">→</button>
         <div class="carousel-slide active">
             <video id="video1" width="640" height="360" muted>
                 <source src="100.mp4" type="video/mp4">
@@ -216,43 +215,31 @@
             currentSlide = (n + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-
-        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-
         // Cambio automático de slides
-        //setInterval(() => showSlide(currentSlide + 1), 5000);
+        setInterval(() => showSlide(currentSlide + 1), 5000);
 
         // Animación de corazones cayendo
         function crearCorazon() {
             const corazon = document.createElement('div');
             corazon.className = 'corazon';
-            corazon.textContent = '♥'; // Corazón en texto en lugar de emoji
+            corazon.textContent = '♥';
 
-            // Posición horizontal aleatoria
-            corazon.style.left = Math.random() * 100 + 'vw';
-
-            // Velocidad aleatoria entre 3 y 6 segundos
-            const duracion = Math.random() * 3 + 3;
-            corazon.style.animationDuration = duracion + 's';
-
-            // Tamaño aleatorio
-            const tamaño = Math.random() * 20 + 20;
-            corazon.style.fontSize = tamaño + 'px';
+            corazon.style.left = Math.random() * 100 + 'vw'; // Posición aleatoria
+            corazon.style.fontSize = Math.random() * 20 + 20 + 'px'; // Tamaño aleatorio
+            corazon.style.animationDuration = (Math.random() * 3 + 3) + 's'; // Entre 3 y 6s
+            corazon.style.zIndex = '100'; // Asegurar que se vea
 
             document.body.appendChild(corazon);
 
-            // Eliminar el corazón después de la animación
-            setTimeout(() => {
-                corazon.remove();
-            }, duracion * 1000);
+            // Eliminar el corazón cuando termine la animación
+            setTimeout(() => corazon.remove(), 10000);
         }
 
-        // Iniciar la creación de corazones cuando la página esté cargada
+        // Crear corazones cada 200ms después de que cargue la página
         document.addEventListener('DOMContentLoaded', () => {
-            // Crear corazones cada 200ms
-            setInterval(crearCorazon, 200);
+            setInterval(crearCorazon, 100);
         });
+
     </script>
 </body>
 
